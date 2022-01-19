@@ -160,6 +160,11 @@ function applyPromotionsCart() {
     return cart;
 }
 
+function myCart() {
+    applyPromotionsCart();
+    return cart;
+}
+
 // Exercise 7
 function addToCart(id) {
     // Refactor previous code in order to simplify it 
