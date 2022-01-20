@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+body {
+    font-family: Poppins;
+}
+
+#errorPassword,
+#errorName,
+#errorPhone,
+#errorLastName,
+#errorAddress,
+#errorMail {
+    display: none;
+}
+
+.invalidInput {
+    border: 1px solid red;
+}
