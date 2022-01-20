@@ -156,7 +156,7 @@ function applyPromotionsCart() {
        }
     }
     
-    return cart;
+    return cart = cart.map(item => ({ ...item, subtotal: item.quantity * item.price }));;
 }
 
 function myCart() {
@@ -195,13 +195,23 @@ function addToCart(id) {
         return [...acc, value];
     }, []);
     
-    return cart = cart.map(item => ({ ...item, subtotal: item.quantity * item.price }));
+    return cart;
 }
 
 // Exercise 9
 function removeFromCart(id) {
     // 1. Loop for to the array products to get the item to add to cart
     // 2. Add found product to the cartList array
+
+    for (let i = 0; i < cart.length; i++) {
+        if (id === cart[i].id && cart[i].quantity > 1 ) {
+            cart[i].quantity--;
+        } else if (id === cart[i].id && cart[i].quantity === 1){
+            let itemRemoved = cart.indexOf(cart[i]);
+            cart.splice(itemRemoved, 1);
+        }
+    }
+    return cart;
 }
 
 // Exercise 10
