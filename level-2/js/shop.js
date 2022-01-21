@@ -176,7 +176,7 @@ function removeFromCart(id) {
 function printCart() {
     // Fill the shopping cart modal manipulating the shopping cart dom 
 
-    if (cart) { 
+    if (cart.length >= 1) { 
         for (let i = 0; i < cart.length; i++) {
             document.getElementById('text-select').style.display = 'none';
             let list = document.querySelector('.list');
@@ -192,11 +192,14 @@ function printCart() {
 }
 
 function removeCartPrinted() {
-    let itemSelected = document.getElementById('list-items');
-    console.log(itemSelected)
+    let items = document.getElementById('list-items');
+    let itemSelected = document.querySelectorAll('.list-select');
+    for (let i = 0; i < itemSelected.length; i++) {
+        items.removeChild(itemSelected[i]);
+    }
 }
 
 function myCart() {
     applyPromotionsCart();
-    //printCart();
+    printCart();
 }
