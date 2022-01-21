@@ -77,17 +77,6 @@ var subtotal = {
 };
 var total = 0;
 
-// Exercise 1
-function buy(id) {
-    // 1. Loop for to the array products to get the item to add to cart
-    // 2. Add found product to the cartList array
-    /* for (let i = 0; i < products.length; i++){
-        if (id === products[i].id) {
-            cartList.push(products[i]);
-        }
-    }
-    return cartList; */
-}
 
 // Exercise 2
 function cleanCart() {
@@ -119,29 +108,6 @@ function calculateTotal() {
     return total;
 }
 
-// Exercise 5
-function generateCart() {
-    // Using the "cartlist" array that contains all the items in the shopping cart,
-    // generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
-    //cartList = cartList.map(item => ({ ...item, quantity: 1, subtotalWithDiscount: null }));
-    /* cart = cartList.reduce((acc, value) => {
-        const itemDuplicated = acc.find(item => item.id === value.id);
-        if (itemDuplicated) {
-            return acc.map((item) => {
-                if (item.id === value.id) {
-                    return {
-                        ...item,
-                        quantity: item.quantity + value.quantity
-                    }
-                }
-                return item;
-            });
-        }
-        return [...acc, value];
-    }, []); 
-    return cart = cart.map(item => ({ ...item, subtotal: item.quantity * item.price }));*/
-}
-
 // Exercise 6
 function applyPromotionsCart() {
     // Apply promotions to each item in the array "cart"
@@ -159,19 +125,11 @@ function applyPromotionsCart() {
     return cart = cart.map(item => ({ ...item, subtotal: item.quantity * item.price }));;
 }
 
-function myCart() {
-    applyPromotionsCart();
-    return cart;
-}
-
 // Exercise 7
 function addToCart(id) {
     // Refactor previous code in order to simplify it
     // 1. Loop for to the array products to get the item to add to cart
     // 2. Add found product to the cart array or update its quantity in case it has been added previously.
-
-    //cart = products.map((item) => item.id === id ? { ...item, quantity: 1, subtotalWithDiscount: null } : item )
-    //return cart;
    
     for (let i = 0; i < products.length; i++) {
         if (id === products[i].id) {
@@ -216,5 +174,29 @@ function removeFromCart(id) {
 
 // Exercise 10
 function printCart() {
-    // Fill the shopping cart modal manipulating the shopping cart dom
+    // Fill the shopping cart modal manipulating the shopping cart dom 
+
+    if (cart) { 
+        for (let i = 0; i < cart.length; i++) {
+            document.getElementById('text-select').style.display = 'none';
+            let list = document.querySelector('.list');
+            let item = document.createElement("li");
+            item.classList.add('list-select');
+            let itemText = document.createTextNode(`${cart[i].quantity} - ${cart[i].name}`);
+            item.appendChild(itemText);
+            list.appendChild(item);
+        }
+    } else {
+         document.getElementById('text-select').style.display = 'block';
+    }
+}
+
+function removeCartPrinted() {
+    let itemSelected = document.getElementById('list-items');
+    console.log(itemSelected)
+}
+
+function myCart() {
+    applyPromotionsCart();
+    //printCart();
 }
