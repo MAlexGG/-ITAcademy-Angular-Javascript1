@@ -177,8 +177,10 @@ function printCart() {
     // Fill the shopping cart modal manipulating the shopping cart dom 
 
     if (cart.length >= 1) { 
+        document.getElementById('text-select').style.display = 'none';
+        document.getElementById('checkoutButton').style.display = "block";
+        
         for (let i = 0; i < cart.length; i++) {
-            document.getElementById('text-select').style.display = 'none';
             let list = document.querySelector('.list');
             let item = document.createElement("li");
             item.classList.add('list-select');
@@ -187,7 +189,8 @@ function printCart() {
             list.appendChild(item);
         }
     } else {
-         document.getElementById('text-select').style.display = 'block';
+        document.getElementById('text-select').style.display = 'block';
+        document.getElementById('checkoutButton').style.display = "none";
     }
 }
 
