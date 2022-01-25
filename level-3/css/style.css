@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+body {
+    font-family: Poppins;
+}
+
+.ct-header {
+    width: 100vw;
+    height: 70vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.img-header {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.txt-header {
+    position: absolute;
+    top: 60%;
+    left: 4%;
+    width: 50vw;
+    text-align: center;
+}
+
+.ct-category {
+    width: 150px;
+    height: 200px;
+}
+
+.ct-img-category {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+}
+
+.img-category {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.bt-shop {
+    background-color: rgb(43, 43, 43) !important;
+}
