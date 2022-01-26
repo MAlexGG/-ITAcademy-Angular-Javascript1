@@ -25,12 +25,12 @@ body {
 }
 
 .ct-category {
-    width: 150px;
+    width: 250px;
     height: 200px;
 }
 
 .ct-img-category {
-    width: 150px;
+    width: 250px;
     height: 150px;
     overflow: hidden;
 }
